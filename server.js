@@ -25,19 +25,19 @@
 //     next();
 // });
 // app.get("/bulb", function(req, res, next) {
-    
+
 //     res.send("Bulb Is On")
 // });
 // app.post("/bulb", function(req, res, next) {
-   
+
 //     res.send("Bulb Is Created")
 // });
 // app.put("/bulb", function(req, res, next) {
-    
+
 //     res.send("Bulb state is changed")
 // });
 // app.delete("/bulb", function(req, res, next) {
-    
+
 //     res.send("Bulb Is Deleted")
 // });
 
@@ -45,46 +45,58 @@
 //     console.log("server is running on 30000")
 // })
 
-function Get(){
-    const Http = new XMLHttpRequest();
-    const url = 'http://192.168.50.177:3000/bulb';
-    Http.open("GET", url);
-    Http.send();
+function Post() {
 
-    Http.onreadystatechange = (e) => {
-        console.log(Http.responseText)
-    }
-}
-
-function Post(){
     const Http = new XMLHttpRequest();
-    const url = 'http://192.168.50.177:3000/bulb';
+    const url = 'http://192.168.50.210:3000/bulb';
     Http.open("POST", url);
-    Http.send();
+
+    Http.setRequestHeader("Content-Type", "application/json");
+    Http.send(JSON.stringify({ name: "Ahmed Raza", time: "Sheikh" }));
 
     Http.onreadystatechange = (e) => {
         console.log(Http.responseText)
     }
+
+    // const Http = new XMLHttpRequest();
+    // const url = 'http://192.168.50.210:3000/bulb';
+    // Http.open("GET", url);
+    // Http.send();
+
+    // Http.onreadystatechange = (e) => {
+    //     console.log(Http.responseText)
+    // }
 }
 
-function Put(){
-    const Http = new XMLHttpRequest();
-    const url = 'http://192.168.50.177:3000/bulb';
-    Http.open("PUT", url);
-    Http.send();
+// function Post() {
+//     const Http = new XMLHttpRequest();
+//     const url = 'http://192.168.50.177:3000/bulb';
+//     Http.open("POST", url);
+//     Http.send();
 
-    Http.onreadystatechange = (e) => {
-        console.log(Http.responseText)
-    }
-}
+//     Http.onreadystatechange = (e) => {
+//         console.log(Http.responseText)
+//     }
+// }
 
-function Delete(){
-    const Http = new XMLHttpRequest();
-    const url = 'http://192.168.50.177:3000/bulb';
-    Http.open("DELETE", url);
-    Http.send();
+// function Put() {
+//     const Http = new XMLHttpRequest();
+//     const url = 'http://192.168.50.177:3000/bulb';
+//     Http.open("PUT", url);
+//     Http.send();
 
-    Http.onreadystatechange = (e) => {
-        console.log(Http.responseText)
-    }
-}
+//     Http.onreadystatechange = (e) => {
+//         console.log(Http.responseText)
+//     }
+// }
+
+// function Delete() {
+//     const Http = new XMLHttpRequest();
+//     const url = 'http://192.168.50.177:3000/bulb';
+//     Http.open("DELETE", url);
+//     Http.send();
+
+//     Http.onreadystatechange = (e) => {
+//         console.log(Http.responseText)
+//     }
+// }
